@@ -25,7 +25,6 @@ RUN mamba install -n base -c conda-forge \
     pmtiles \
     flask \
     flask-cors \
-    tippecanoe \
     voila \
     leafmap \
     jupyter-server-proxy -y && \
@@ -70,3 +69,7 @@ CMD ["/bin/bash", "/home/jovyan/voila/run.sh"]
 # -------------------------------------------------------
 # docker run -it -p 8866:8866 -v $(pwd):/home/jovyan/notebooks giswqs/leafmap:voila
 # open http://localhost:8866 in your browser
+
+
+# To build and push the image to Docker Hub:
+# docker buildx build --platform linux/amd64,linux/arm64 -t giswqs/leafmap:voila --push .
